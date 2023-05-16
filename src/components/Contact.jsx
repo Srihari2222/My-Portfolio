@@ -9,8 +9,10 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import { github } from "../assets";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import "./computer.css";
 
 const Contact = () => {
+  const [alertbox,setAlert]=useState(false);
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -18,11 +20,11 @@ const Contact = () => {
     message: "",
   });
 
+
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
+    const { name, value } = e.target;
 
     setForm({
       ...form,
@@ -30,22 +32,31 @@ const Contact = () => {
     });
   };
 
+  const handleRedirect = () => {
+    alert("If you phase any problem in redirecting of the url, please install MailTo extension in the chrome Extensions from https://chrome.google.com › detail › mailto-for-gmail")
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(form.email==="" || form.message==="" || form.name==="null")
+    {
+      alert("Ahh you missed something.");
+      return ;
+    }
     setLoading(true);
-
+    
+    
     emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      .send('service_2tswy2a',
+        'template_mplgi1a',
         {
           from_name: form.name,
-          to_name: "JavaScript Mastery",
+          to_name: "Sri Hari",
           from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
+          to_email: "kataresrihari@gmail.com",
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        'iewGNwR0k6wwGBqxd'
       )
       .then(
         () => {
@@ -79,6 +90,9 @@ const Contact = () => {
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
         <form
+          method="POST" data-netlify="true"
+          target="_blank"
+          name="contact"
           ref={formRef}
           onSubmit={handleSubmit}
           className='mt-12 flex flex-col gap-8'
@@ -130,7 +144,7 @@ const Contact = () => {
           <motion.a whileHover={{scale:"1.25"}} href="https://github.com/Srihari2222" target="_blank" title="github">
           <FontAwesomeIcon className="contact-logo" icon={faGithub} size="2x"/>
           </motion.a>
-          <motion.a whileHover={{scale:"1.25"}} href="" title="kataresrihari@gmail.com">
+          <motion.a whileHover={{scale:"1.25"}} onClick={handleRedirect} href="mailto:kataresrihari@gmail.com" title="kataresrihari@gmail.com" >
             <FontAwesomeIcon className="contact-logo" icon={faEnvelope} size="2x"/>
           </motion.a>
           </div>

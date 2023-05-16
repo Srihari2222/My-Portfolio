@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown,faChevronUp} from '@fortawesome/free-solid-svg-icons'
 import { faTimes} from '@fortawesome/free-solid-svg-icons';
 import { faO } from '@fortawesome/free-solid-svg-icons';
+// import { useNavigate } from 'react-router-dom';
 import "./computer.css";
 
 
