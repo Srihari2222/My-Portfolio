@@ -207,23 +207,27 @@ const projects = [
   {
     name: "Tic Tac Toe Game",
     description:
-      "Web-based application which is developed to gain knowledge in react framework. This application showcase the knowledge of logical implementation of javascript. This has a feature where the user can play with the customized computer.",
+      "A multiplayer game which is a web application built using react, WEB sockets and express. This has all the possible playing platform experiences like offline, online and with a computer.",
     tags: [
       {
-        name: "react",
+        name: "React",
         color: "blue-text-gradient",
       },
       {
-        name: "HTML",
+        name: "WEB sockets",
         color: "green-text-gradient",
       },
       {
-        name: "CSS",
+        name: "Node",
         color: "pink-text-gradient",
+      },
+      {
+        name:"express",
+        color:"blue-text-gradient",
       },
     ],
     image: tic_tac_toe,
-    source_code_link: "https://github.com/Srihari2222/Tic-Tac-Toe-only-with-react-",
+    source_code_link: "https://github.com/Srihari2222/Tic-Tac-Toe-with-REACT-and-WEB-Sockets",
   },
   {
     name: "Dice Game",
@@ -265,7 +269,7 @@ const projects = [
       },
       {
         name:"express",
-        color: "red-text-gradiant",
+        color: "blue-text-gradient",
       }
     ],
     image: crop,
